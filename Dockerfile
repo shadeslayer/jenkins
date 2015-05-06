@@ -1,5 +1,6 @@
 FROM jenkins
 USER root
+RUN groupadd -g 111 docker
 RUN apt-get update
 RUN apt install -y xz-utils dpkg-dev ruby dput debhelper pkg-kde-tools \
                    devscripts ubuntu-dev-tools git \
@@ -11,5 +12,5 @@ RUN gem install bundler
 RUN git clone https://github.com/blue-systems/pangea-tooling /tmp/pangea-tooling
 RUN cd /tmp/pangea-tooling && bundler install && bundler update
 RUN rm -rf /tmp/pangea-tooling/
-RUN usermod -a -G rvm jenkins
+RUN usermod -a -G rvm,docker jenkins
 USER jenkins
