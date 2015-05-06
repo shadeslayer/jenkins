@@ -12,3 +12,4 @@ RUN git clone https://github.com/blue-systems/pangea-tooling /tmp/pangea-tooling
 RUN cd /tmp/pangea-tooling && bundler install && bundler update
 RUN rm -rf /tmp/pangea-tooling/
 RUN usermod -a -G rvm jenkins
+USER jenkins
