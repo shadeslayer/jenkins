@@ -10,3 +10,4 @@ RUN curl -sSL https://get.rvm.io | bash -s stable --ruby
 RUN gem install bundler
 RUN git clone https://github.com/blue-systems/pangea-tooling /tmp/
 RUN cd /tmp/ && bundler install && bundler update
+RUN rm -rf /tmp/pangea-tooling/
