@@ -1,9 +1,9 @@
 FROM jenkins
 USER root
+
 # Add jenkins to the docker group so that it can launch
 # more containers from within itself
-RUN groupadd -g 111 docker
-RUN usermod -a -G rvm,docker jenkins
+RUN groupadd -g 111 docker && usermod -a -G docker jenkins
 
 # Install stuff for ruby
 RUN apt-get update
@@ -20,3 +20,4 @@ RUN /bin/bash -lc "gem install bundler"
 RUN git clone https://github.com/blue-systems/pangea-tooling /tmp/pangea-tooling
 RUN /bin/bash -lc "cd /tmp/pangea-tooling && bundler install && bundler update"
 RUN rm -rf /tmp/pangea-tooling/
+
