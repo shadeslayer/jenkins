@@ -21,3 +21,4 @@ RUN git clone https://github.com/blue-systems/pangea-tooling /tmp/pangea-tooling
 RUN /bin/bash -lc "cd /tmp/pangea-tooling && bundler install && bundler update"
 RUN rm -rf /tmp/pangea-tooling/
 
+## Please setup ssh keys and ~/.ssh/config manually at this point
