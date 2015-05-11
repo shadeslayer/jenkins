@@ -41,3 +41,9 @@ RUN gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys D39DC0E3
 RUN curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 RUN /bin/bash -lc "gem install bundler"
 
+# SSH config
+RUN /bin/bash -lc "mkdir -p ~/.ssh/ && cat > ~/.ssh/authorized_keys << EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP9LX/ooEJmg34CmVB7s/K8FiO22KKcp48QYX2h7U/XsXkfMX6MwIi0xkFHDdY0eW+oSImbjzQbq3hKjgqiqHKr6dmuIdlCvPQx6wG4Ka5nMUxTsprzRHHUOOF/4kKD899xcbpckUkQh7KbpKgOWU5rTG+uzdfGDWTmtGj4PVfH8xZiRlT0K2G1skdFzqvVVnV84WxG6aQRpduruDCdPw8u40TJzrAVpJKBpau9R3Y3BhFfXuHxc75WXHTxAEJetOrQg2aOvUnJblJhdrgG7JJyNoz3XvjbgtUxMbuDaYmLK8EnG7AFhNFNm7nmA49rQV1nnyEcpG0MKuSdrFDKtZb jenkins@torvald
+EOF
+"
+
